@@ -1,4 +1,4 @@
-// 快速排序
+// 快速排序 二分法
 function quickSort(arr) {
   let midIndex = Math.floor(arr.length / 2);
   let midItem = arr[midIndex];
