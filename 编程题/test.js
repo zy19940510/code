@@ -3,4 +3,4 @@
 // var b = a;
 // a.x = a = { n: 2 };
 // console.log(a, b);
-console.log(parseFloat((0.1 + 0.2).toFixed(2)));
+// console.log(parseFloat((0.1 + 0.2).toFixed(2)));
