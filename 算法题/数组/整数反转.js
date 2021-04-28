@@ -1,7 +1,7 @@
 // 给你一个32位有符号整数x，返回反转后的结果
 function reverse(x) {
-  let str = x.toString()
-  let arr = str.split('')
+  let str = x.toString() // 数字转字符串
+  let arr = str.split('') // 字符串转数组
   if(arr[0] !== '-') {
     let num = Number(arr.reverse().join('')) // 使'1000' 变为 '0001'的时候去掉前面的0
     if(num >= Math.pow(2, 32) - 1 && num <= -Math.pow(2, 32)) {
@@ -10,7 +10,7 @@ function reverse(x) {
     }
     return num
   } else {
-    arr.shift()
+    arr.shift() // 去掉前面的-
     let num = Number(arr.reverse().join(''))
     if(num >= Math.pow(2, 32) - 1 && num <= -Math.pow(2, 32)) {
       return 0
