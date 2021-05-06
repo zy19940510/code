@@ -5,13 +5,13 @@
  * 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
  */
 function maxProfit(prices) {
-  let min = prices[0]
-  let max = 0
+  let min = prices[0];
+  let max = 0;
 
   for (const price of prices) {
-    min = Math.min(min, price)
-    max = Math.max(max, price- min) // 反复执行，找到最大利润
+    min = Math.min(min, price);
+    max = Math.max(max, price - min); // 反复执行，找到最大利润
   }
 
-  return max
+  return max;
 }
