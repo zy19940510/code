@@ -7,10 +7,10 @@ function lowestCommonAncestor(root, p, q) {
   }
   let left = lowestCommonAncestor(root.left, p, q);
   let right = lowestCommonAncestor(root.right, p, q);
-  // 如果left为空，说明公共节点是右子树
+  // 如果left为空，说明左子树不包含p,q，说明公共节点是右子树
   if (left == null) return right;
   // 如果right为空，说明公共节点是左子树
   if (right == null) return left;
-  // 如果都为空，说明公共节点是root
+  // 如果都不为空， p, q 分列在 root 的 异侧 （分别在 左 / 右子树），说明公共节点是root
   return root;
 }

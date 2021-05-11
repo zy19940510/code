@@ -32,22 +32,22 @@ function preorder(root) {
   while (stack.length) {
     let node = stack.pop();
     res.push(node.val);
-    if (node.right) res.push(node.right);
-    if (node.left) res.push(node.left);
+    if (node.right) stack.push(node.right);
+    if (node.left) stack.push(node.left);
   }
 }
 // 中序
 function inorder(root) {
   let res = [];
   let stack = [];
-  let node = root;
+  let node = root; // 临时移动指针
   while (stack.length || node) {
-    // 先把左子树左节点压栈，最后入栈的就是左子树左子节点，所以最早出栈的也是它
+    // 先把左子树左节点压栈，最后入栈的就是左子树左叶子节点，所以最早出栈的也是它
     while (node) {
       stack.push(node);
       node = node.left;
     }
-    // 出栈，从左子树左子节点往上走
+    // 出栈，从左子树左叶子节点往上走
     let n = stack.pop();
     res.push(n.val);
     // 右子节点

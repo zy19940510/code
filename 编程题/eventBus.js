@@ -56,9 +56,9 @@ events.fire("sleep", 4, 5, 6);
 // I want sleep1 1 2 3 4 5 6
 // I want sleep2 1 2 3 4 5 6
 events.off("sleep", fn1);
-events.once('sleep', () => console.log('I want sleep'));
-events.fire('sleep');
+events.once("sleep", () => console.log("I want sleep"));
+events.fire("sleep");
 // I want sleep2 1 2 3
 // I want sleep
-events.fire('sleep');
+events.fire("sleep");
 // I want sleep2 1 2 3
