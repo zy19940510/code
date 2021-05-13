@@ -1,5 +1,6 @@
 function convert(list) {
-  const res = [];
+  const ret = [];
+  // 生成一个map，用id为key，节点为value，用{}作为初始值
   const map = list.reduce((res, v) => {
     res[v.id] = v;
     return res
@@ -7,7 +8,7 @@ function convert(list) {
   console.log(map);
   for (const item of list) {
     if (item.parentId === 0) {
-      res.push(item);
+      ret.push(item);
       continue;
     }
     if (item.parentId in map) {
@@ -16,7 +17,7 @@ function convert(list) {
       parent.children.push(item);
     }
   }
-  return res;
+  return ret;
 }
 
 let list = [
@@ -30,4 +31,4 @@ let list = [
   { id: 8, name: "部门H", parentId: 4 },
 ];
 const result = convert(list);
-console.log(result);
+// console.log(result);
