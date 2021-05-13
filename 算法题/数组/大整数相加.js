@@ -28,16 +28,16 @@ function bigNumberSum(a, b) {
   }
   // console.log(retArr);
   // 运算好后将数组再次反转过来，然后去掉前面的0，恢复成正常数字
-  retArr = retArr.reverse().join('');
+  retArr = Number(retArr.reverse().join(''));
   // console.log(retArr);
   // 找到数字非0最高位
-  for (let i = 0; i < retArr.length; i++) {
-    if (retArr[i] == 0) {
-      continue;
-    }
-    retArr = retArr.slice(i);
-    break;
-  }
+  // for (let i = 0; i < retArr.length; i++) {
+  //   if (retArr[i] == 0) {
+  //     continue;
+  //   }
+  //   retArr = retArr.slice(i);
+  //   break;
+  // }
   return retArr;
 }
 
