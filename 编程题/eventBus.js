@@ -4,15 +4,22 @@ class Events {
   }
 
   addEvents(key, fn, isOnce, ...args) {
+    // 判断是否已经有这个key的事件map对象，每一个key都可以保存多个回调
+    // 有的话就返回这个map对象
+    // 没有的话就新建一个map对象并返回该map
     const value = this.events.get(key)
       ? this.events.get(key)
       : this.events.set(key, new Map()).get(key);
+    // 在这个map对象上挂载回调
     value.set(fn, (...args1) => {
+      // 合并两次调用时参数
       fn(...args, ...args1);
+      // 判断是否只执行一次，只执行一次则将回调卸载
       isOnce && this.off(key, fn);
     });
   }
 
+  // 挂载回调
   on(key, fn, ...args) {
     if (!fn) {
       console.error(`没有传入回调函数`);
@@ -20,13 +27,13 @@ class Events {
     }
     this.addEvents(key, fn, false, ...args);
   }
-
+  // 卸载回调
   off(key, fn) {
     if (this.events.get(key)) {
       this.events.get(key).delete(fn);
     }
   }
-
+  // 触发该key上挂载的所有回调
   fire(key, ...args) {
     if (!this.events.get(key)) {
       console.warn(`没有 ${key} 事件`);
@@ -36,7 +43,7 @@ class Events {
       cb(...args);
     }
   }
-
+  // 挂载只执行一次的回调
   once(key, fn, ...args) {
     if (!fn) {
       console.error(`没有传入回调函数`);

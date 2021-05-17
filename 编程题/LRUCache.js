@@ -54,6 +54,8 @@ LRUCache.prototype.put = function (key, value) {
   if (this.cache.has(key)) {
     this.cache.delete(key);
   } else if (this.cache.size >= this.max) {
+    // 最重要的地方：当缓存满了的时候
+    // 将第一个缓存删除，使用map.key().next().value可以拿到第一个
     this.cache.delete(this.cache.keys().next().value);
   }
   this.cache.set(key, value);

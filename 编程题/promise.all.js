@@ -4,7 +4,7 @@ function promiseAll(promises) {
   // 返回一个promise
   return new Promise(function (resolve, reject) {
     if (!Array.isArray(promises)) {
-      return reject(new TypeError("argument must be an array"));
+      return reject(new TypeError("arguments must be an array"));
     }
     var countNum = 0; // 保存一个count，用来标记当前有多少任务已经执行完了
     var promiseNum = promises.length; // 总任务数
