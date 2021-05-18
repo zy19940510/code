@@ -9,8 +9,8 @@ function maxProfit(prices) {
   let max = 0;
 
   for (const price of prices) {
-    min = Math.min(min, price);
-    max = Math.max(max, price - min); // 反复执行，找到最大利润
+    min = Math.min(min, price);// 寻找最小值
+    max = Math.max(max, price - min);// 找到最大的差值
   }
 
   return max;

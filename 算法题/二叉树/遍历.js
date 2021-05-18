@@ -12,16 +12,16 @@ function preorder(root) {
 function inorder(root) {
   let res = [];
   if (!root) return;
-  preorder(root.left);
+  inorder(root.left);
   res.push(root);
-  preorder(root.right);
+  inorder(root.right);
 }
 // 后序 左子树 -> 右子🌲 -> 根节点
 function postorder(root) {
   let res = [];
   if (!root) return;
-  preorder(root.left);
-  preorder(root.right);
+  postorder(root.left);
+  postorder(root.right);
   res.push(root);
 }
 // 迭代方式，无规律

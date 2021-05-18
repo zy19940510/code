@@ -4,6 +4,7 @@ function maxSubArray(nums) {
   let sum = 0;
   for (const num of nums) {
     if (sum > 0) sum += num;
+    // 局部最优：负数会拉低总和，贪心的地方，为负数的时候立刻放弃，从下一个元素重新计算“连续和”
     if (sum <= 0) sum = num;
     ans = Math.max(ans, sum);
   }
