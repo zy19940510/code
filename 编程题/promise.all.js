@@ -11,8 +11,8 @@ function promiseAll(promises) {
     var resolvedvalue = new Array(promiseNum); // 把每一个任务返回值保存起来
     // 遍历数组，执行每一个任务
     for (let i = 0; i < promiseNum; i++) {
-      Promise.resolve(promises[i]).then(
-        function (value) {
+      Promise.resolve(promises[i]) // 用这个可以不用判断是否是promise，如果是常量，则会包裹成promise
+        .then((value) => {
           // 当前任务执行完毕之后，使count增加
           countNum++;
           // 把每一个任务返回值保存起来
@@ -22,12 +22,11 @@ function promiseAll(promises) {
             // 把之前保存起来的返回值返回出去
             return resolve(resolvedvalue);
           }
-        },
-        function (reason) {
+        })
+        .catch((reason) => {
           // 如果其中一个炸了，就直接reject返回
           return reject(reason);
-        }
-      );
+        });
     }
   });
 }
