@@ -7,21 +7,25 @@
 function asyncPool(poolLimit, array) {
   let i = 0;
   const ret = []; // 用来存储所有的Promise任务
-  const pendingArr = []; // 正在执行的Promise对象
+  const pendingArr = []; // 用来存储所有正在执行的Promise任务
 
   const enqueue = function () {
-    // 边界处理，array为空数组或者遍历完成
+    // 遍历完成
     if (i === array.length) {
       return Promise.resolve();
     }
-    const item = array[i++]; // 获取参数
-    const p = item(); // 初始化一个promise
-    ret.push(p); // 放入promises数组
+    const task = array[i++]; // 获取第i个任务
+    const p = task(); // 执行任务，会返回promise
+    ret.push(p); // 将promise放入ret数组
     // promise执行完毕，从pendingArr数组中删除
     const e = p.then(() => pendingArr.splice(pendingArr.indexOf(e), 1));
     // 插入pendingArr数组，表示正在执行的promise
+    // 用这个数组的长度来判断有没有超过并发限制
+    // 每一个被push进去的任务，在执行完毕后，会将自己删除
     pendingArr.push(e);
-    // 使用Promise.race，每当pendingArr数组中promise数量低于poolLimit，就实例化新的promise并执行
+    // 判断正在执行的任务数量有没有超过限制
+    // 如果超过了就用race干掉一个，然后继续递归
+    // 如果没超过，就直接继续递归
     let r =
     pendingArr.length >= poolLimit
         ? Promise.race(pendingArr)
