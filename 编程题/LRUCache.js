@@ -1,39 +1,4 @@
-// class LRUCache {
-//   constructor(max) {
-//     this.keys = [];
-//     this.cache = Object.create(null);
-//     this.max = max;
-//   }
-//   get(key) {
-//     if (this.cache[key]) {
-//       this.remove(this.keys, key);
-//       this.keys.push(key);
-//       return this.cache[key];
-//     }
-//   }
-//   put(key, value) {
-//     if (this.cache[key]) {
-//       this.cache[key] = value;
-//       this.remove(this.keys, key);
-//       this.keys.push(key);
-//     } else {
-//       this.keys.push(key);
-//       this.cache[key] = value;
-//       if (this.keys.length > this.max) {
-//         const key = this.keys.shift();
-//         this.cache[key] = null;
-//       }
-//     }
-//   }
-//   remove(arr, item) {
-//     if (arr.length) {
-//       const index = arr.indexOf(item);
-//       if (index > -1) {
-//         return arr.splice(index, 1);
-//       }
-//     }
-//   }
-// }
+// 最近最少使用策略，在浏览器缓存、vue的keep-alive都有使用到这个原理
 
 const LRUCache = function (max) {
   this.cache = new Map();

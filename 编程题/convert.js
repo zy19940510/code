@@ -1,3 +1,5 @@
+// 将一个节点数组转换成一个节点树
+
 function convert(list) {
   const ret = [];
   // 生成一个map，用id为key，整个节点为value
@@ -42,4 +44,4 @@ let list = [
   { id: 8, name: "部门H", parentId: 4 },
 ];
 const result = convert(list);
-// console.log(result);
+console.log(result);

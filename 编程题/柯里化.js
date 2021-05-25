@@ -19,9 +19,13 @@ function func(a, b, c) {
   return console.log(a, b, c);
 }
 
-const curriedLog = curry(func); // 返回了一个curried包装器
+// 接受一个函数，返回一个curried包装器，可以用来接受多次参数
+const curriedLog = curry(func); 
 
 curriedLog(1)(2)(3);
+// 核心思路就是判断接受的参数的个数，和包装器接受的参数个数是否相同
+// 如果前者大于后者，说明还有剩余参数为传入，则继续返回包装器继续接受参数
+// 否则直接执行前者
 
 /**
  * 1、第一个调用 curried(1) 将 1 保存在词法环境中，然后返回一个包装器 pass。
