@@ -20,3 +20,12 @@
 // })();
 // alert(d);
 // alert(c);
+
+// function say() {
+//   console.log(...arguments);
+//   console.log(this.x);
+// }
+// var a = say.bind({ x: 1 }, 1, 2, 3);
+// var b = a.bind({ x: 2 }, 4, 5, 6);
+// a(7, 8, 9);
+// b(7, 8, 9);
