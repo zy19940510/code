@@ -1,4 +1,4 @@
-// leetcode141题
+// leetcode 141题
 // 给定一个链表，判断链表中是否有环。
 function hasCycle(head) {
   if(!head || !head.next) return false

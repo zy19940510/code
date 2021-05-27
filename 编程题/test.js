@@ -29,3 +29,11 @@
 // var b = a.bind({ x: 2 }, 4, 5, 6);
 // a(7, 8, 9);
 // b(7, 8, 9);
+function format(num) {
+  var str = num+'';
+  return str.split("").reverse().reduce((prev, next, index) => {
+    return ((index % 3) ? next : (next + ',')) + prev;
+  })
+}
+let num = 1234567890; 
+console.log(format(num));

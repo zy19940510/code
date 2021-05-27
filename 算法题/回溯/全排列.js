@@ -1,4 +1,4 @@
-// leetcode46题
+// leetcode 46题
 // 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 function backtrack(list, tempList, nums) {
   // 终止条件,如果长度一样说明已经符合全排列了

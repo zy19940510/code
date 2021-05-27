@@ -10,13 +10,15 @@ function longestPalindrome(s) {
     // 偶数 abba， 从bb开始向两边扩散
     helper(i, i + 1);
   }
-  function helper(m, n) {
-    while (m >= 0 && n < s.length && s[m] == s[n]) {
-      m--;
-      n++;
+  function helper(l, r) {
+    // 双指针l、r，相同并且没有超过边界，则继续往两边扩散
+    while (l >= 0 && r < s.length && s[l] == s[r]) {
+      l--;
+      r++;
     }
-    if (n - m - 1 > ret.length) {
-      ret = s.slice(m + 1, n);
+    // 截取字符串
+    if (r - l - 1 > ret.length) {
+      ret = s.slice(l + 1, r);
     }
   }
   return ret;

@@ -1,4 +1,4 @@
-// leetcode20题
+// leetcode 20题
 // 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
 var isValid = function (s) {
   let map = {
