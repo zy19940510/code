@@ -20,3 +20,20 @@
 // })();
 // alert(d);
 // alert(c);
+
+// function say() {
+//   console.log(...arguments);
+//   console.log(this.x);
+// }
+// var a = say.bind({ x: 1 }, 1, 2, 3);
+// var b = a.bind({ x: 2 }, 4, 5, 6);
+// a(7, 8, 9);
+// b(7, 8, 9);
+function format(num) {
+  var str = num+'';
+  return str.split("").reverse().reduce((prev, next, index) => {
+    return ((index % 3) ? next : (next + ',')) + prev;
+  })
+}
+let num = 1234567890; 
+console.log(format(num));
