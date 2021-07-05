@@ -16,7 +16,7 @@ function curry(func) {
 }
 
 function func(a, b, c) {
-  return console.log(a, b, c);
+  console.log(a, b, c);
 }
 
 // 接受一个函数，返回一个curried包装器，可以用来接受多次参数

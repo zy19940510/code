@@ -33,11 +33,7 @@ class Arrange {
   };
   // 出现 `wait` 消除 `waitFirst` 效果
   wait = (s) => {
-    this.promises.splice(
-      this.index,
-      0,
-      new Promise((resolve) => setTimeout(resolve, s * 1000))
-    );
+    this.promises.push(new Promise((resolve) => setTimeout(resolve, s * 1000)))
     this.index = this.promises.length;
     return this;
   };
@@ -74,6 +70,6 @@ const arrange = (s = "") => {
   return a;
 };
 
-arrange('William');
+// arrange('William');
 // arrange('William').wait(5).do('commit');
-// arrange("William").waitFirst(5).do("push");
+arrange("William").waitFirst(5).do("push");

@@ -8,14 +8,16 @@ function trap(height) {
   let max_left = Array(n);
   let max_right = Array(n);
 
-  for (let i = 1; i < n - 1; i++) {
+  max_left[0] = height[0]
+  for (let i = 1; i < n; i++) {
     // 当前列左边最大高度等于：它前边的墙的左边的最高高度和它前边的墙的高度选一个较大的
-    max_left[i] = Math.max(max_left[i - 1], height[i - 1]);
+    max_left[i] = Math.max(max_left[i - 1], height[i]);
   }
 
+  max_right[n - 1] = height[n - 1]
   for (let i = n - 2; i >= 0; i--) {
     // 当前列右边最大高度等于：它后边的墙的右边的最高高度和它后边的墙的高度选一个较大的
-    max_right[i] = Math.max(max_right[i + 1], height[i + 1]);
+    max_right[i] = Math.max(max_right[i + 1], height[i]);
   }
 
   for (let i = 1; i < n - 1; i++) {
@@ -26,3 +28,5 @@ function trap(height) {
 
   return res;
 }
+
+console.log(trap([4,2,0,3,2,5])); // 9
