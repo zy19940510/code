@@ -5,6 +5,10 @@ const LRUCache = function (max) {
   this.max = max;
 };
 
+/**
+ * 判断是否已经有这个key，如果有的话，把旧的删除，然后再新设置一个进去，放到最开始的地方
+ * 没有的话就返回-1
+ **/
 LRUCache.prototype.get = function (key) {
   if (this.cache.has(key)) {
     const temp = this.cache.get(key);
@@ -14,7 +18,11 @@ LRUCache.prototype.get = function (key) {
   }
   return -1;
 };
-
+/**
+ * 先判断是否已存在这个key
+ * 有的话先删除，在最后在放心的进去，这里先判断条件
+ * 没有的话，需要判断是否超过容量，超过的话需要将第一个删除
+ */
 LRUCache.prototype.put = function (key, value) {
   if (this.cache.has(key)) {
     this.cache.delete(key);
