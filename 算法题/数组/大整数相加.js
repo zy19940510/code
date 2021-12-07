@@ -8,8 +8,6 @@ function bigNumberSum(a, b) {
   // 用0补齐长度，让两个数字长度相等，然后转换成数组，然后反转数组，使个位在数组前面，这样更符合从左到右访问数组的习惯
   a = a.padStart(maxLength, 0).split("").reverse(); // ['8', '1', '3', '2','5', '7', '9', '0','7', '6', '2', '4','0']
   b = b.padStart(maxLength, 0).split("").reverse(); // ['9', '2', '1', '3','5', '2', '1', '8','4', '5', '9', '0','0']
-  // console.log(a, b);
-
   // 创建结果数组，长度同样是maxLength，预留进位
   let retArr = new Array(maxLength);
   // 开始计算，遍历两个数组，从左到右照对应下标把元素两两相加，模拟竖式运算
@@ -26,18 +24,8 @@ function bigNumberSum(a, b) {
     }
     retArr[i] = temp;
   }
-  // console.log(retArr);
   // 运算好后将数组再次反转过来，然后去掉前面的0，恢复成正常数字
-  retArr = Number(retArr.reverse().join(''));
-  // console.log(retArr);
-  // 找到数字非0最高位
-  // for (let i = 0; i < retArr.length; i++) {
-  //   if (retArr[i] == 0) {
-  //     continue;
-  //   }
-  //   retArr = retArr.slice(i);
-  //   break;
-  // }
+  retArr = Number(retArr.reverse().join(""));
   return retArr;
 }
 
