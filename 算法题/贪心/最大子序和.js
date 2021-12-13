@@ -1,14 +1,14 @@
 // 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 function maxSubArray(nums) {
-  let ans = nums[0];
+  let res = nums[0];
   let sum = 0;
   for (const num of nums) {
-    if (sum > 0) sum += num;
+    if (sum + num > num) sum += num;
     // 局部最优：负数会拉低总和，贪心的地方，为负数的时候立刻放弃，从下一个元素重新计算“连续和”
-    if (sum <= 0) sum = num;
-    ans = Math.max(ans, sum);
+    if (sum + num <= num) sum = num;
+    res = Math.max(res, sum);
   }
-  return ans;
+  return res;
 }
 
 console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])); // 6
