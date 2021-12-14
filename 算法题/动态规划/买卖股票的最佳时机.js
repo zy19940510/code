@@ -10,7 +10,7 @@
 //时间复杂度O(n) 空间复杂度O(n)，dp数组第二维是常数
 const maxProfit = function (prices) {
   let n = prices.length;
-  let dp = Array.from(new Array(n), () => new Array(2));
+  let dp = Array.from(Array(n), () => Array(2));
   dp[0][0] = 0; //第0天不持有
   dp[0][1] = -prices[0]; //第0天持有
   for (let i = 1; i < n; i++) {
@@ -23,7 +23,7 @@ const maxProfit = function (prices) {
 // 时间复杂度O(n) 空间复杂度O(1)
 const maxProfit = function (prices) {
   let n = prices.length;
-  let dp = Array.from(new Array(n), () => new Array(2));
+  let dp = Array.from(Array(n), () => Array(2));
   dp[0] = 0;
   dp[1] = -prices[0];
   for (let i = 1; i < n; i++) {
