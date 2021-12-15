@@ -37,3 +37,10 @@
 // }
 // let num = 1234567890;
 // console.log(format(num));
+function add(x) {
+  return x + 1;
+}
+function multi(x) {
+  return x * 10;
+}
+console.log(multi(add(2)));
