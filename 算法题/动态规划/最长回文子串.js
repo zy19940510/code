@@ -10,6 +10,7 @@ const longestPalindrome = (s) => {
   let n = s.length;
   // 初始化n x n方阵
   let dp = Array.from(Array(n), () => Array(n).fill(false));
+  console.log(dp);
   // 行
   for (let i = n - 1; i >= 0; i--) {
     // 列
@@ -23,4 +24,4 @@ const longestPalindrome = (s) => {
   return res;
 };
 
-console.log(longestPalindromeDP("abba"));
+console.log(longestPalindrome("abba"));
