@@ -2,11 +2,9 @@
 
 function convert(list) {
   const ret = [];
-  // 生成一个map，用id为key，整个节点为value
+  // 生成一个map，key为id，value为节点
   // 这样方便查询和拿到节点
   // 用空对象作为初始值进行迭代
-  // 这里有一个非常巧妙的点，就是list中的对象，和map最终包含的对象引用是相同的
-  // 这也是因为为什么后面map中的节点children属性变化了之后，list中的对象也变了
   const map = list.reduce((res, v) => {
     res[v.id] = v; // { 1: { id: 1, name: '部门A', parentId: 0 } }
     return res;

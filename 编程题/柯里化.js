@@ -4,7 +4,7 @@ function curry(func) {
     // console.log(func.length); // func形参的长度: 3
     // 如果传入的参数长度比func相同或者更多，说明一次性将所有参数都接收了,只需将调用传递给func
     if (args.length >= func.length) {
-      return func(...args)
+      return func(...args);
     } else {
       // 如果传入的参数长度小于func的参数长度，则说明需要拆分每个参数调用，缓存之前的参数
       return function pass(...args2) {
@@ -20,7 +20,7 @@ function func(a, b, c) {
 }
 
 // 接受一个函数，返回一个curried包装器，可以用来接受多次参数
-const curriedLog = curry(func); 
+const curriedLog = curry(func);
 
 curriedLog(1)(2)(3);
 // 核心思路就是判断接受的参数的个数，和包装器接受的参数个数是否相同

@@ -72,4 +72,4 @@ const arrange = (s = "") => {
 
 // arrange('William');
 // arrange('William').wait(5).do('commit');
-arrange("William").waitFirst(5).do("push");
+// arrange("William").waitFirst(5).do("push");
