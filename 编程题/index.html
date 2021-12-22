@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>手撸源码</title>
 </head>
+
 <body>
   <!-- <input id="inp" type="text"> -->
   <!-- <script src="./debounce.js"></script> -->
-  <script src="./test.js"></script>
+  <ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+  <script>
+    let ul = document.querySelector('#ul')
+    ul.addEventListener('click', (event) => {
+      console.log(event, event.target, event.currentTarget);
+    })
+  </script>
+  <!-- <script src="./test.js"></script> -->
 </body>
+
 </html>
