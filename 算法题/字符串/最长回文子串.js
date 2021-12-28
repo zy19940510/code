@@ -17,9 +17,12 @@ function longestPalindrome(s) {
       r++;
     }
     // 截取字符串
-    if (r - l - 1 > ret.length) {
-      ret = s.slice(l + 1, r);
+    const maxLen = r - l + 1;
+    if (maxLen > ret.length) {
+      ret = s.substring(l, l + maxLen);
     }
   }
   return ret;
 }
+
+console.log(longestPalindrome("abba"));

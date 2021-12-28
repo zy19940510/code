@@ -16,8 +16,9 @@ const longestPalindrome = (s) => {
     // 列
     for (let j = i; j < n; j++) {
       dp[i][j] = s[i] === s[j] && (j - i < 2 || dp[i + 1][j - 1]);
-      if (dp[i][j] && j - i + 1 > res.length) {
-        res = s.substring(i, j + 1);
+      const maxLen = j - i + 1;
+      if (dp[i][j] && maxLen > res.length) {
+        res = s.substring(i, i + maxLen);
       }
     }
   }

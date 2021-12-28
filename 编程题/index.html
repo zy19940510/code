@@ -11,7 +11,7 @@
 <body>
   <!-- <input id="inp" type="text"> -->
   <!-- <script src="./debounce.js"></script> -->
-  <ul id="ul">
+  <!-- <ul id="ul">
     <li>1</li>
     <li>2</li>
     <li>3</li>
@@ -23,8 +23,25 @@
     ul.addEventListener('click', (event) => {
       console.log(event, event.target, event.currentTarget);
     })
-  </script>
+  </script> -->
   <!-- <script src="./test.js"></script> -->
+  <script>
+    class Foo {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+      getName = () => {
+        console.log(this, this.name);
+      }
+      getAge() {
+        console.log(this, this.age);
+      }
+    }
+    const foo = new Foo('zy', 27);
+    foo.getName();
+    foo.getAge();
+  </script>
 </body>
 
 </html>
