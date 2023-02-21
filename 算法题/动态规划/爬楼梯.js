@@ -8,12 +8,20 @@
 // 思路2：使用斐波那契数列公式计算
 // 时间复杂度O(n)
 var climbStairs = function (n) {
-  const dp = [];
-  dp[1] = 1; // 1层有1种方法
-  dp[2] = 2; // 2层有2种方法
+  const dp = [0,1,2];
   for (let i = 3; i <= n; i++) {
     dp[i] = dp[i - 1] + dp[i - 2];
   }
   return dp[n];
 };
 console.log(climbStairs(4));
+
+// 斐波那契数列函数，并列出每一个数
+function fib(n) {
+  const result = [0, 1];
+  for (let i = 2; i <= n; i++) {
+    result[i] = result[i - 1] + result[i - 2];
+  }
+  return result;
+}
+console.log(fib(10));
