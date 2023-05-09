@@ -37,8 +37,8 @@ var maxProfit = function (prices) {
 // 2、贪心算法，空间复杂度O(1) 时间复杂度O(n)
 var maxProfit = function (prices) {
     if (prices.length < 2) return 0;
-    let min = prices[0]; // 最小买入点
-    let max = 0; // 最大卖出点
+    let min = prices[0]; // 最小买入
+    let max = 0; // 最大卖出
     for(let p of prices) {
         min = Math.min(min, p);
         max = Math.max(max, p - min);
